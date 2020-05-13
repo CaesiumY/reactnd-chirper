@@ -6,15 +6,25 @@ import {
   TiHeartFullOutline,
   TiHeartOutline,
 } from "react-icons/ti/index";
+import { handleToggleTweet } from "../actions/tweets";
 
 export class Tweet extends Component {
   toParent = (e, id) => {
     e.preventDefault();
-    // TODO
   };
 
   handleLike = (e) => {
     e.preventDefault();
+
+    const { id, authedUser, tweet, dispatch } = this.props;
+
+    dispatch(
+      handleToggleTweet({
+        id,
+        authedUser,
+        hasLiked: tweet.hasLiked,
+      })
+    );
   };
 
   render() {
@@ -79,7 +89,7 @@ const mapStateToProps = ({ tweets, users, authedUser }, { id }) => {
   const tweet = tweets[id];
   const parentTweet = tweet ? tweets[tweet.replyingTo] : null;
   return {
-    users,
+    authedUser,
     tweet: tweet
       ? formatTweet(tweet, users[tweet.author], authedUser, parentTweet)
       : null,
