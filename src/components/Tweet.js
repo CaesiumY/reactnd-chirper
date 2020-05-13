@@ -21,7 +21,6 @@ export class Tweet extends Component {
     const { tweet } = this.props;
     const {
       name,
-      id,
       timestamp,
       text,
       avatar,
