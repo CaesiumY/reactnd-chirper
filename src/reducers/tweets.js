@@ -35,6 +35,27 @@ export default function tweets(state = {}, action) {
         [tweet.id]: tweet,
         ...replyingTo,
       };
+    // NOTE - Why is this not working? ->
+    // NOTE - because of immutable update. [nestedState objects] should be copied as well. Below here is shallow copy. Therefore always use spread operator to avoid unexpected bugs
+    // case ADD_TWEET:
+    //   const { tweet } = action;
+
+    //   let replyingTo = {};
+    //   if (tweet.replyingTo !== null) {
+    //     const allReplies = state[tweet.replyingTo].replies.concat([tweet.id]);
+    //     console.log(allReplies);
+    //     return {
+    //       ...state,
+    //       [tweet.id]: tweet,
+    //       [tweet.replyingTo.replies]: [...allReplies],
+    //     };
+    //   }
+
+    //   return {
+    //     ...state,
+    //     [action.tweet.id]: action.tweet,
+    //     ...replyingTo,
+    //   };
     default:
       return state;
   }
