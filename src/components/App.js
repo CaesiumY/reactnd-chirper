@@ -6,6 +6,7 @@ import { handleInitialData } from "../actions/shared";
 import Dashboard from "./Dashboard";
 import NewTweet from "./NewTweet";
 import TweetPage from "./TweetPage";
+import Nav from "./Nav";
 
 class App extends Component {
   componentDidMount() {
@@ -17,6 +18,7 @@ class App extends Component {
         <Fragment>
           <LoadingBar />
           <div className="container">
+            <Nav></Nav>
             {this.props.loading ? (
               <h3 className="center">Loading...</h3>
             ) : (
