@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import LoadingBar from "react-redux-loading-bar";
 import { handleInitialData } from "../actions/shared";
 // import Dashboard from "./Dashboard";
-import LoadingBar from "react-redux-loading-bar";
-import NewTweet from "./NewTweet";
+// import NewTweet from "./NewTweet";
+import TweetPage from "./TweetPage";
 
 class App extends Component {
   componentDidMount() {
@@ -16,7 +17,7 @@ class App extends Component {
         {this.props.loading ? (
           <h3 className="center">Loading...</h3>
         ) : (
-          <NewTweet />
+          <TweetPage match={{ params: { id: "8xf0y6ziyjabvozdd253nd" } }} />
         )}
       </div>
     );

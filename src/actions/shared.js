@@ -11,8 +11,8 @@ export function handleInitialData() {
     dispatch(showLoading());
     return getInitialData().then(({ users, tweets }) => {
       dispatch(receiveUser(users));
-      dispatch(setAuthedUser(AUTHED_ID));
       dispatch(receiveTweets(tweets));
+      dispatch(setAuthedUser(AUTHED_ID));
       dispatch(hideLoading());
     });
   };

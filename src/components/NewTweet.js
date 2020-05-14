@@ -16,7 +16,7 @@ export class NewTweet extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     const { text } = this.state;
-    const { dispatch, id } = this.props;
+    const { dispatch, id } = this.props; // id prop is going to be a replyingTo's id
     await dispatch(handleAddTweet(text, id));
 
     this.setState({ text: "" });
