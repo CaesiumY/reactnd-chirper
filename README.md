@@ -30,6 +30,7 @@ This repo is a code-along with the first project in the [React Nanodegree progra
 - View a Tweet Detail Page
 - Redux loading bar
 - Each tweets can have child or parent tweets(like comments)
+- Can toggle Like button
 
 ## 📜License
 
